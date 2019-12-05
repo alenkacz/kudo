@@ -2,6 +2,7 @@ package reader
 
 import (
 	"fmt"
+	"path/filepath"
 	"regexp"
 	"strings"
 
@@ -10,10 +11,13 @@ import (
 )
 
 const (
-	operatorFileName      = "operator.yaml"
-	templateFileNameRegex = "templates/.*.yaml"
-	paramsFileName        = "params.yaml"
-	APIVersion            = "kudo.dev/v1beta1"
+	operatorFileName = "operator.yaml"
+	paramsFileName   = "params.yaml"
+	APIVersion       = "kudo.dev/v1beta1"
+)
+
+var (
+	templateFileNameRegex = filepath.Join("templates", ".*.yaml")
 )
 
 func newPackageFiles() packages.Files {
